@@ -47,7 +47,7 @@ cm_df = pd.DataFrame(
     cm,
     index=["Actual 0 (No Churn)", "Actual 1 (Churn)"],
     columns=["Predicted 0 (No Churn)", "Predicted 1 (Churn)"]
-)
+) # Properly formated the matrix 
 
 # acc - Accuracy (How accurate was it)
 # prec - Precision (How often it was correct guessing YES)
@@ -65,4 +65,5 @@ print(cm_df)
 #--------------------------------------------- Save model for UI -------------------------------------------------------
 import joblib
 joblib.dump(model, "logreg_model.pkl")
+
 
