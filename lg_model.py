@@ -32,14 +32,22 @@ model.fit(IN_train, OUT_train)
 
 pred = model.predict(IN_test)  # Predicts if it would churn based on the data
 
+
 #----------------------------------------------- Displaying results ----------------------------------------------------
 
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 
 acc = accuracy_score(OUT_test, pred)
 prec = precision_score(OUT_test, pred, pos_label = 1)
 rec = recall_score(OUT_test, pred, pos_label = 1)
 f1_score = f1_score(OUT_test, pred, pos_label = 1)
+cm = confusion_matrix(OUT_test, pred) # Creates Confusion Matrix
+
+cm_df = pd.DataFrame(
+    cm,
+    index=["Actual 0 (No Churn)", "Actual 1 (Churn)"],
+    columns=["Predicted 0 (No Churn)", "Predicted 1 (Churn)"]
+) # Properly formated the matrix 
 
 # acc - Accuracy (How accurate was it)
 # prec - Precision (How often it was correct guessing YES)
@@ -51,7 +59,11 @@ print("Accuracy: ", (round(acc, 1) * 100), "%")
 print("Precision: ", (round(prec, 1) * 100), "%")
 print("Recall: ", (round(rec,1)*100), "%")
 print("F1 Score: ", (round(f1_score,1)*100), "%")
+print("\nConfusion Matrix:")
+print(cm_df)
 
 #--------------------------------------------- Save model for UI -------------------------------------------------------
 import joblib
 joblib.dump(model, "logreg_model.pkl")
+
+
