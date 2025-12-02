@@ -11,7 +11,9 @@ Install:
 6. lg_model.py
 
 Place each file in the same project folder
+
 Create a folder/directory and name it pages
+
 Place 1_predictionpage.py in pages folder/directory
 
 MUST EXECUTE lg_model.py BEFORE RUNNING FILE (needed for prediction page)
