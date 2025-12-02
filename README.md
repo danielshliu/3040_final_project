@@ -3,12 +3,18 @@
 UI INSTRUCTIONS
 
 Install:
+
+Data:
 1. WA_Fn-UseC_-Telco-Customer-Churn.csv.xls
 2. preprocessed_telco_churn.csv
 3. dt_importances.csv
-4. dashboard.py
-5. 1_predictionpage.py
-6. lg_model.py
+4. decisiontree.ipynb
+
+Python files:
+1. dashboard.py
+2. 1_predictionpage.py
+3. lg_model.py
+4. decisiontree.ipynb
 
 Place each file in the same project folder
 
